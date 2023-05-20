@@ -69,6 +69,7 @@ class Board:
     def _get_grid(self):
         cropedImage = self._capture_image()
         pixels = self._convert_image_to_grid(cropedImage)
+        # cropedImage.show()
         grid = self._transpose_grid(pixels)
         return grid
 

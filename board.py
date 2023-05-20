@@ -34,7 +34,7 @@ class Board:
                     grid[i][j] = EMPTY
                 elif grid[i][j][0] > 200:
                     grid[i][j] = RED
-                elif grid[i][j][0] > 50:
+                elif grid[i][j][0] > 0:
                     grid[i][j] = BLUE
         return grid
 
@@ -69,7 +69,6 @@ class Board:
     def _get_grid(self):
         cropedImage = self._capture_image()
         pixels = self._convert_image_to_grid(cropedImage)
-        # cropedImage.show()
         grid = self._transpose_grid(pixels)
         return grid
 
@@ -89,6 +88,6 @@ class Board:
 
     def select_column(self, column):
         pyautogui.click(
-            self._get_grid_cordinates()[column][0] + LEFT,
-            self._get_grid_cordinates()[column][1] + TOP,
+            self._get_grid_cordinates()[column][1] + LEFT,
+            self._get_grid_cordinates()[column][0] + TOP,
         )

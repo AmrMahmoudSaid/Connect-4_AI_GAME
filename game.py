@@ -1,11 +1,14 @@
 from board import Board
 import time
 import random
+from Alphabeta import make_best_move
+from MiniMax import make_best
 
 # GAME LINK
 # http://kevinshannon.com/connect4/
 
 
+#####################################################################################
 def main():
     board = Board()
 
@@ -13,17 +16,16 @@ def main():
     game_end = False
     while not game_end:
         (game_board, game_end) = board.get_game_grid()
-
         # FOR DEBUG PURPOSES
         board.print_grid(game_board)
-
-        # YOUR CODE GOES HERE
-        column = 1
-        # Insert here the action you want to perform based on the output of the algorithm
-        # You can use the following function to select a column
-        random_column = random.randint(0, 6)
+        # print(board.board+"\n")
+        # # YOUR CODE GOES HERE
+        column = make_best(game_board)
+        print(column)
+        # print(column)
+        print(game_board)
+        # print(random_column)
         board.select_column(1)
-
         time.sleep(2)
 
 
